@@ -1,0 +1,467 @@
+/* Princess Mario Kart Portfolio CSS */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Comic+Neue:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colores temáticos de Princess Peach */
+    --princess-pink: #ff69b4;
+    --light-pink: #ffb6c1;
+    --royal-pink: #ff1493;
+    --peach-coral: #ff7f7f;
+    --princess-yellow: #ffd700;
+    --star-yellow: #fff44f;
+    --mario-blue: #0080ff;
+    --coin-gold: #ffcc00;
+    --power-up-orange: #ff8c00;
+    --mushroom-red: #ff4444;
+    --castle-purple: #9966cc;
+    --cloud-white: #ffffff;
+    --text-dark: #2d1b69;
+    --text-light: #6b4e9d;
+    --rainbow: linear-gradient(45deg, #ff0000, #ff8c00, #ffd700, #32cd32, #00bfff, #8a2be2);
+    
+    /* Sombras temáticas */
+    --princess-glow: 0 0 30px rgba(255, 105, 180, 0.6);
+    --star-glow: 0 0 40px rgba(255, 244, 79, 0.8);
+    --coin-glow: 0 0 25px rgba(255, 204, 0, 0.7);
+    --power-shadow: 0 15px 50px rgba(255, 105, 180, 0.3);
+    --castle-shadow: 0 20px 60px rgba(153, 102, 204, 0.4);
+    
+    --border-radius: 25px;
+    --transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+body {
+    font-family: 'Comic Neue', cursive;
+    background: linear-gradient(135deg, var(--light-pink) 0%, var(--princess-pink) 30%, var(--castle-purple) 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--text-dark);
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+
+/* Header Hero - Castillo de la Princesa */
+.hero-header {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--light-pink) 0%, var(--princess-pink) 50%, var(--castle-purple) 100%);
+    overflow: hidden;
+}
+/* Decoración de castillo */ 
+.hero-header::before { 
+    content: '🏰👑🌟'; 
+    position: absolute; 
+    top: 5%; left: 50%; 
+    transform: translateX(-50%); 
+    font-size: 4rem; 
+    filter: drop-shadow(var(--castle-shadow));
+}
+
+/* Corona flotante alrededor del perfil */
+.profile-image {
+    margin-bottom: 40px;
+    position: relative;
+    animation: profileFloat 3s ease-in-out infinite;
+}
+
+.profile-image::before {
+    content: '👑';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    animation: crownSpin 4s linear infinite, crownGlow 2s ease-in-out infinite alternate;
+    filter: drop-shadow(var(--princess-glow));
+}
+
+.profile-image::after {
+    content: '✨💎✨';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+}
+
+.profile-img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 8px solid var(--princess-yellow);
+    box-shadow: 
+        var(--princess-glow),
+        inset 0 0 30px rgba(255, 255, 255, 0.3),
+        0 0 0 12px rgba(255, 105, 180, 0.3);
+    object-fit: cover;
+    transition: var(--transition);
+    animation: princessGlow 3s ease-in-out infinite;
+}
+
+.hero-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    background: var(--rainbow);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbowTitle 3s ease-in-out infinite;
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.3);
+    filter: drop-shadow(var(--princess-glow));
+}
+
+.hero-subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+    font-weight: 400;
+    color: var(--cloud-white);
+    text-shadow: 2px 2px 4px rgba(153, 102, 204, 0.8);
+}
+.flag { 
+    font-size: 3rem; 
+    filter: drop-shadow(var(--power-shadow)); 
+    animation: flagRace 3s ease-in-out infinite; 
+    transition: var(--transition); 
+}
+
+/* Botón temático de Mario Kart */
+.back-home {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.btn-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 36px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+    color: var(--cloud-white);
+    background: linear-gradient(135deg, var(--mushroom-red), var(--power-up-orange));
+    border: 4px solid var(--princess-yellow);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: var(--power-shadow);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Secciones - Mundo de Mario */
+section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 182, 193, 0.8));
+    margin: 0;
+    position: relative;
+    border-top: 5px solid var(--princess-yellow);
+    border-image: var(--rainbow) 1;
+}
+
+/* Tubería decorativa */
+section::before {
+    content: '🌟';
+    position: absolute;
+    top: -15px;
+    left: 50px;
+    font-size: 2rem;
+}
+
+section::after {
+    content: '🍄';
+    position: absolute;
+    top: -15px;
+    right: 50px;
+    font-size: 2rem;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 3.5rem;
+    margin-bottom: 70px;
+    background: linear-gradient(45deg, var(--royal-pink), var(--castle-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    filter: drop-shadow(2px 2px 4px rgba(255, 105, 180, 0.3));
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 8px;
+    background: var(--rainbow);
+    border-radius: 4px;
+    animation: underlineRainbow 2s linear infinite, underlineGrow 1s ease-out;
+}
+
+/* Power-ups grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 245, 0.8));
+    backdrop-filter: blur(20px);
+    padding: 40px 30px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--power-shadow);
+    transition: var(--transition);
+    border: 4px solid var(--light-pink);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-15px) rotateX(10deg);
+    box-shadow: var(--star-glow), var(--princess-glow);
+    border-color: var(--princess-yellow);
+}
+
+.feature-icon {
+    font-size: 4rem;
+    margin-bottom: 25px;
+    filter: drop-shadow(var(--coin-glow));
+}
+
+/* Biografía - Historia de la Princesa */
+.bio-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.bio-text p {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+    text-align: justify;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 5px solid var(--princess-pink);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 182, 193, 0.7));
+    backdrop-filter: blur(15px);
+    border-radius: var(--border-radius);
+    box-shadow: var(--power-shadow);
+    transition: var(--transition);
+    border: 3px solid var(--light-pink);
+    position: relative;
+}
+
+.highlight-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(var(--coin-glow));
+}
+
+/* Habilidades - Power-ups de la Princesa */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 60px;
+}
+
+.skill-category {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 182, 193, 0.8));
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--power-shadow);
+    transition: var(--transition);
+    border: 4px solid var(--princess-pink);
+    position: relative;
+}
+
+.skill-category::before {
+    content: '👑';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    background: var(--princess-pink);
+    border-radius: 50%;
+    padding: 10px;
+    animation: crownFloat 3s ease-in-out infinite;
+}
+
+.skill-category h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+    color: var(--royal-pink);
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(255, 105, 180, 0.3);
+}
+
+.skill-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.skill-bar {
+  width: 100%;
+}
+
+.skill-progress {
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 182, 193, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--light-pink);
+}
+
+.stat-fill {
+  height: 100%;
+  width: 0; /* arranca en 0, el JS global lo llena */
+  background: linear-gradient(90deg, #ff99cc, #ff6699);
+  border-radius: 10px;
+  transition: width 1s ease-in-out;
+}
+/* Footer - Reino de la Princesa */
+.footer {
+    background: linear-gradient(135deg, var(--castle-purple), var(--royal-pink));
+    color: var(--cloud-white);
+    text-align: center;
+    padding: 60px 20px 30px;
+    position: relative;
+    overflow: hidden;
+    border-top: 8px solid var(--princess-yellow);
+}
+
+.footer::before {
+    content: '🏰✨🌟✨👑✨🌟✨🏰';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+}
+
+.footer-icons span {
+    font-size: 2rem;
+    animation: iconMarioFloat 3s ease-in-out infinite;
+    transition: var(--transition);
+    cursor: pointer;
+    filter: drop-shadow(var(--princess-glow));
+}
+
+
+/* Animaciones temáticas de Mario Kart */
+@keyframes profileFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(2deg); }
+    66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes rainbowTitle {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design - Adaptado para móvil */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.8rem; }
+    .hero-subtitle { font-size: 1.3rem; }
+    .profile-img { width: 180px; height: 180px; }
+    .section-title { font-size: 2.5rem; }
+    .bio-content { grid-template-columns: 1fr; gap: 40px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+    section { padding: 80px 20px; }
+    .hero-flags { gap: 20px; }
+    .flag { font-size: 2.5rem; }
+    
+    body::after {
+        font-size: 16px;
+        line-height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1.1rem; }
+    .profile-img { width: 150px; height: 150px; }
+    .section-title { font-size: 2rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .skill-category { padding: 30px 20px; }
+    .flag { font-size: 2rem; }
+    
+    .hero-header::before { font-size: 3rem; }
+    
+    body::after {
+        font-size: 14px;
+        line-height: 30px;
+    }
+}
+
+/* Efectos hover mejorados */
+.highlight-item:hover .highlight-icon {
+    animation: coinSpin 1s linear;
+    transform: scale(1.2);
+}
+/* Juego*/
+.btn-juego {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #ff4ecd;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-juego:hover {
+  background-color: #e43bb7;
+  transform: scale(1.1);
+}

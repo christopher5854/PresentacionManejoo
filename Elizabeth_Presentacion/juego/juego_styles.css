@@ -1,0 +1,83 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe6f7, #ffeef0);
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #ff4ecd;
+}
+
+#tablero {
+  width: 420px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-gap: 10px;
+}
+
+.carta {
+  width: 100px;
+  height: 100px;
+  background: #ff4ecd;
+  border-radius: 10px;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  color: transparent; /* oculta el ícono al inicio */
+  transition: background 0.3s, transform 0.2s;
+}
+
+.carta.volteada {
+  background: white;
+  color: black;
+  border: 2px solid #ff4ecd;
+  transform: rotateY(180deg);
+}
+
+#movimientos {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+#resetBtn {
+  background-color: #ff4ecd;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#resetBtn:hover {
+  background-color: #e43bb7;
+  transform: scale(1.1);
+}
+
+.salir-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-salir {
+  display: inline-block;
+  padding: 12px 24px;
+  background: rgb(156, 214, 231);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.btn-salir:hover {
+  background: rgba(161, 205, 216, 0.699);
+}

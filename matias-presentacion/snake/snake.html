@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game - Matias "El Forajido"</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="snake.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header del juego -->
+        <header class="game-header">
+            <div class="back-button-container">
+                <a href="../matias-index.html" class="back-button">
+                    <span class="back-icon">🏠</span>
+                    <span class="back-text">Volver a Matias</span>
+                </a>
+            </div>
+            
+            <h1 class="game-title">🐍 SNAKE GAME</h1>
+            <div class="game-subtitle">El Forajido del Gaming</div>
+        </header>
+
+        <!-- Panel de información del juego -->
+        <div class="game-info-panel">
+            <div class="score-container">
+                <div class="score-item">
+                    <span class="score-label">Puntaje:</span>
+                    <span class="score-value" id="currentScore">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">Mejor:</span>
+                    <span class="score-value" id="highScore">0</span>
+                </div>
+            </div>
+            
+            <div class="level-container">
+                <div class="level-item">
+                    <span class="level-label">Nivel:</span>
+                    <span class="level-value" id="currentLevel">1</span>
+                </div>
+                <div class="level-item">
+                    <span class="level-label">Velocidad:</span>
+                    <span class="level-value" id="currentSpeed">1x</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Canvas del juego -->
+        <div class="game-area">
+            <canvas id="gameCanvas" width="600" height="400"></canvas>
+            
+            <!-- Overlay de inicio -->
+            <div class="game-overlay" id="startOverlay">
+                <div class="overlay-content">
+                    <h2>🐍 SNAKE GAME</h2>
+                    <p>¡Demuestra que eres un verdadero forajido del gaming!</p>
+                    <div class="controls-info">
+                        <h3>Controles:</h3>
+                        <div class="control-keys">
+                            <div class="key">↑</div>
+                            <div class="key">↓</div>
+                            <div class="key">←</div>
+                            <div class="key">→</div>
+                        </div>
+                        <p>Usa las flechas para mover la serpiente</p>
+                    </div>
+                    <button class="start-button" id="startButton">¡COMENZAR JUEGO!</button>
+                </div>
+            </div>
+
+            <!-- Overlay de pausa -->
+            <div class="game-overlay" id="pauseOverlay" style="display: none;">
+                <div class="overlay-content">
+                    <h2>⏸️ JUEGO PAUSADO</h2>
+                    <p>Presiona ESPACIO para continuar</p>
+                    <button class="pause-button" id="resumeButton">CONTINUAR</button>
+                </div>
+            </div>
+
+            <!-- Overlay de game over -->
+            <div class="game-overlay" id="gameOverOverlay" style="display: none;">
+                <div class="overlay-content">
+                    <h2>💀 GAME OVER</h2>
+                    <div class="final-score">
+                        <p>Puntaje Final: <span id="finalScore">0</span></p>
+                        <p>Mejor Puntaje: <span id="finalHighScore">0</span></p>
+                    </div>
+                    <div class="game-over-buttons">
+                        <button class="restart-button" id="restartButton">JUGAR DE NUEVO</button>
+                        <button class="menu-button" id="menuButton">MENÚ PRINCIPAL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de instrucciones -->
+        <div class="instructions-panel">
+            <div class="instruction-item">
+                <span class="instruction-icon">🎯</span>
+                <span class="instruction-text">Come las frutas para crecer y ganar puntos (¡hay múltiples frutas!)</span>
+            </div>
+            <div class="instruction-item">
+                <span class="instruction-icon">⚠️</span>
+                <span class="instruction-text">No te choques con las paredes ni contigo mismo</span>
+            </div>
+            <div class="instruction-item">
+                <span class="instruction-icon">🚀</span>
+                <span class="instruction-text">La velocidad aumenta cada 5 frutas y aparecen más frutas cada 2 niveles</span>
+            </div>
+            <div class="instruction-item">
+                <span class="instruction-icon">⏸️</span>
+                <span class="instruction-text">Presiona ESPACIO para pausar</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="snake.js"></script>
+</body>
+</html>

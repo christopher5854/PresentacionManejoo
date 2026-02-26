@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece - Adivina el Personaje</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="imagenes/logo.png" alt="One Piece Logo" class="logo">
+            <h1>Adivina el Personaje</h1>
+            <p>¡Demuestra cuánto sabes sobre los personajes de One Piece!</p>
+        </div>
+        
+        <div class="guess-game-container">
+            <div class="guess-card" id="guess-card">
+                <div class="clue-section">
+                    <h3>Pista del Personaje:</h3>
+                    <p id="character-clue">Haz clic en "Nueva Pista" para comenzar</p>
+                </div>
+                <div class="guess-input-section">
+                    <input type="text" id="character-guess" placeholder="Escribe el nombre del personaje..." disabled>
+                    <button id="submit-guess" onclick="submitGuess()" disabled>Adivinar</button>
+                    <button id="new-clue" onclick="getNewClue()">Nueva Pista</button>
+                </div>
+                <div class="guess-feedback" id="guess-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="onepiece.js"></script>
+</body>
+</html>

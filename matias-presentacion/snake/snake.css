@@ -1,0 +1,384 @@
+/* Reset y variables CSS para el Snake Game */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #00ff88;
+    --secondary-color: #ff6b35;
+    --accent-color: #ffd23f;
+    --background-dark: #1a1a2e;
+    --background-light: #16213e;
+    --text-white: #ffffff;
+    --text-dark: #333333;
+    --danger-color: #ff4757;
+    --success-color: #2ed573;
+    --warning-color: #ffa502;
+    --border-radius: 15px;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: 'Orbitron', monospace;
+    background: linear-gradient(135deg, var(--background-dark) 0%, var(--background-light) 100%);
+    min-height: 100vh;
+    color: var(--text-white);
+    overflow-x: hidden;
+}
+
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header del juego */
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.back-button-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--success-color));
+    color: var(--text-white);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 255, 136, 0.4);
+}
+
+.back-icon {
+    font-size: 1.2rem;
+}
+
+.game-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-shadow: 3px 3px 0px var(--background-dark);
+    margin-bottom: 10px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.game-subtitle {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Panel de información del juego */
+.game-info-panel {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.score-container, .level-container {
+    display: flex;
+    gap: 20px;
+}
+
+.score-item, .level-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    min-width: 120px;
+}
+
+.score-label, .level-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.score-value, .level-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Área del juego */
+.game-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#gameCanvas {
+    border: 3px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    background: var(--background-dark);
+    box-shadow: var(--shadow);
+    cursor: crosshair;
+}
+
+/* Overlays del juego */
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+}
+
+.overlay-content {
+    text-align: center;
+    max-width: 500px;
+    padding: 40px;
+}
+
+.overlay-content h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px var(--background-dark);
+}
+
+.overlay-content p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.controls-info {
+    margin: 25px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.controls-info h3 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.control-keys {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+}
+
+/* Botones del juego */
+.start-button, .pause-button, .restart-button, .menu-button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.start-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--success-color));
+    color: var(--text-white);
+    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+}
+
+.start-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 255, 136, 0.6);
+}
+
+.pause-button {
+    background: linear-gradient(135deg, var(--warning-color), var(--accent-color));
+    color: var(--text-white);
+}
+
+.restart-button {
+    background: linear-gradient(135deg, var(--success-color), var(--primary-color));
+    color: var(--text-white);
+}
+
+.menu-button {
+    background: linear-gradient(135deg, var(--secondary-color), var(--danger-color));
+    color: var(--text-white);
+}
+
+.pause-button:hover, .restart-button:hover, .menu-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Panel de instrucciones */
+.instructions-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.instruction-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.instruction-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.instruction-icon {
+    font-size: 1.5rem;
+    min-width: 30px;
+}
+
+.instruction-text {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Final score */
+.final-score {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.final-score p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.final-score span {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.game-over-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Animaciones */
+@keyframes glow {
+    from {
+        text-shadow: 3px 3px 0px var(--background-dark), 0 0 20px var(--primary-color);
+    }
+    to {
+        text-shadow: 3px 3px 0px var(--background-dark), 0 0 30px var(--primary-color), 0 0 40px var(--primary-color);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.game-overlay {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 15px;
+    }
+    
+    .game-title {
+        font-size: 2rem;
+    }
+    
+    .game-info-panel {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .score-container, .level-container {
+        justify-content: center;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+    }
+    
+    .instructions-panel {
+        grid-template-columns: 1fr;
+    }
+    
+    .overlay-content {
+        padding: 20px;
+    }
+    
+    .overlay-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .start-button, .pause-button, .restart-button, .menu-button {
+        min-width: 150px;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}
