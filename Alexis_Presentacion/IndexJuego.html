@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tres en Raya - Pibe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./IndexJuego.css">
+</head>
+<body>
+
+    <button id="back-btn" onclick="window.history.back()">Volver</button>
+
+    <div class="game-container">
+
+        <!-- TABLERO -->
+        <div class="game-board">
+            <h1 class="game-title">TRES<br>EN RAYA</h1>
+
+            <div class="turn-display" id="turnDisplay">Turno: X</div>
+
+            <div class="board-grid" id="boardGrid">
+                <div class="cell" onclick="handleClick(0)"></div>
+                <div class="cell" onclick="handleClick(1)"></div>
+                <div class="cell" onclick="handleClick(2)"></div>
+                <div class="cell" onclick="handleClick(3)"></div>
+                <div class="cell" onclick="handleClick(4)"></div>
+                <div class="cell" onclick="handleClick(5)"></div>
+                <div class="cell" onclick="handleClick(6)"></div>
+                <div class="cell" onclick="handleClick(7)"></div>
+                <div class="cell" onclick="handleClick(8)"></div>
+            </div>
+
+            <button class="reset-btn" onclick="resetGame()">&#x1F504; Nueva Partida</button>
+        </div>
+
+        <!-- PANEL INFO -->
+        <div class="game-info">
+            <div class="score-section">
+                <h2>Marcador</h2>
+                <div class="score-row">
+                    <span class="player-x">X</span>
+                    <span class="score-val" id="scoreX">0</span>
+                </div>
+                <div class="score-row">
+                    <span class="player-o">O</span>
+                    <span class="score-val" id="scoreO">0</span>
+                </div>
+                <div class="score-row">
+                    <span class="player-tie">Empates</span>
+                    <span class="score-val" id="scoreTie">0</span>
+                </div>
+            </div>
+
+            <div class="mode-section">
+                <h3>Modo de Juego</h3>
+                <button class="mode-btn active" id="btnPvP" onclick="setMode('pvp')">2 Jugadores</button>
+                <button class="mode-btn" id="btnCPU" onclick="setMode('cpu')">vs CPU</button>
+            </div>
+
+            <div class="controls">
+                <h3>Cómo jugar</h3>
+                <div class="control-key"><span>Turno X:</span><span style="color:#2ed573">Verde</span></div>
+                <div class="control-key"><span>Turno O:</span><span style="color:#ff4757">Rojo</span></div>
+                <div class="control-key"><span>Gana:</span><span>3 en línea</span></div>
+                <div class="control-key"><span>Reset:</span><span>Nueva Partida</span></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- GAME OVER OVERLAY -->
+    <div class="game-over" id="gameOverlay">
+        <div class="game-over-content">
+            <h2 id="overlayTitle">¡Ganó X!</h2>
+            <div class="final-score" id="overlayMsg">¡Felicitaciones!</div>
+            <button class="restart-btn" onclick="resetGame()">Jugar de Nuevo</button>
+        </div>
+    </div>
+
+    <script src="./IndexJuego.js"></script>
+</body>
+</html>

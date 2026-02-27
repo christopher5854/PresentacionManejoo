@@ -1,0 +1,372 @@
+/* ============================= */
+/*   🌌 FORAJIDO GALÁCTICO      */
+/* ============================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--gold:#d4af37;
+--blue:#00e5ff;
+--red:#ff3c3c;
+--dark:#050505;
+--metal:#111;
+--text:#e0e0e0;
+}
+
+body{
+font-family:'Orbitron', sans-serif;
+background:radial-gradient(circle at 20% 20%, #111, #000 70%);
+color:var(--text);
+overflow-x:hidden;
+}
+
+/* 🌠 ESTRELLAS ANIMADAS */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:200%;
+background-image:radial-gradient(white 1px, transparent 1px);
+background-size:4px 4px;
+opacity:0.08;
+animation:warp 120s linear infinite;
+z-index:-1;
+}
+
+@keyframes warp{
+from{transform:translateY(0);}
+to{transform:translateY(-1000px);}
+}
+
+/* ================= HERO ================= */
+
+.hero-header{
+height:90vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+background:linear-gradient(180deg,rgba(0,0,0,0.7),rgba(0,0,0,0.95));
+}
+
+.back-button-container{
+position:absolute;
+left:40px;
+top:30px;
+}
+
+.back-button{
+border:2px solid var(--gold);
+padding:10px 22px;
+border-radius:30px;
+color:var(--gold);
+text-decoration:none;
+transition:0.4s;
+}
+
+.back-button:hover{
+background:var(--gold);
+color:black;
+box-shadow:0 0 20px var(--gold);
+}
+
+.profile-img{
+width:200px;
+height:200px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid var(--gold);
+box-shadow:
+0 0 20px var(--gold),
+0 0 40px var(--blue);
+animation:pulse 3s infinite;
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 15px var(--gold);}
+50%{box-shadow:0 0 45px var(--blue);}
+100%{box-shadow:0 0 15px var(--gold);}
+}
+
+.hero-title{
+font-size:3rem;
+color:var(--gold);
+letter-spacing:5px;
+margin-top:20px;
+text-shadow:0 0 20px var(--gold);
+}
+
+.hero-subtitle{
+color:var(--blue);
+margin-top:10px;
+opacity:0.8;
+}
+
+.hero-flags{
+margin-top:15px;
+font-size:1.5rem;
+}
+
+/* ================= FEATURES ================= */
+
+.features-section{
+padding:60px 20px;
+background:var(--metal);
+}
+
+.section-title{
+text-align:center;
+font-size:2rem;
+color:var(--gold);
+margin-bottom:40px;
+text-shadow:0 0 10px var(--gold);
+}
+
+.features-grid{
+display:grid;
+grid-template-columns:repeat(2, 1fr);
+gap:25px;
+max-width:1000px;
+margin:0 auto;
+}
+
+.feature-card{
+background:#0d0d0d;
+padding:25px;
+border-radius:15px;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.4s;
+text-align:center;
+}
+
+.feature-card:hover{
+transform:translateY(-6px);
+box-shadow:0 0 25px var(--blue);
+}
+
+.feature-icon{
+font-size:2.5rem;
+margin-bottom:10px;
+color:var(--blue);
+}
+
+/* ================= BIO ================= */
+
+.bio-section{
+padding:60px 20px;
+}
+
+.bio-content{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:40px;
+max-width:1100px;
+margin:auto;
+}
+
+.highlight-item{
+background:#0d0d0d;
+padding:15px;
+border-left:4px solid var(--red);
+border-radius:8px;
+margin-bottom:15px;
+transition:0.3s;
+}
+
+.highlight-item:hover{
+transform:translateX(8px);
+box-shadow:0 0 15px var(--red);
+}
+
+/* ================= SKILLS ================= */
+
+.skills-section{
+padding:60px 20px;
+background:var(--metal);
+}
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(2, 1fr);
+gap:30px;
+max-width:1000px;
+margin:auto;
+}
+
+.skill-bar{
+margin-bottom:15px;
+}
+
+.skill-progress{
+height:8px;
+background:#222;
+border-radius:10px;
+overflow:hidden;
+}
+
+.skill-fill{
+height:100%;
+width:var(--data-level);
+background:linear-gradient(90deg,var(--red),var(--blue));
+box-shadow:0 0 10px var(--blue);
+}
+
+/* ================= PROYECTOS ================= */
+
+.project-section{
+padding:60px 20px;
+}
+
+.projects-grid{
+display:grid;
+grid-template-columns:1fr;
+max-width:650px;
+margin:40px auto 0 auto;
+gap:40px;
+}
+
+.project-card{
+background:linear-gradient(145deg,#0d0d0d,#000);
+padding:45px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.1);
+text-align:center;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.project-card::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.08),transparent);
+transition:0.6s;
+}
+
+.project-card:hover::before{
+left:100%;
+}
+
+.project-card:hover{
+transform:translateY(-8px) scale(1.03);
+box-shadow:0 0 35px var(--gold);
+}
+
+.project-card h3{
+color:var(--gold);
+margin-bottom:15px;
+font-size:1.6rem;
+}
+
+.project-card p{
+opacity:0.85;
+margin-bottom:25px;
+}
+
+/* ================= BOTÓN EJECUTAR MISIÓN ================= */
+
+.project-button{
+display:inline-block;
+padding:14px 32px;
+border-radius:40px;
+font-weight:700;
+letter-spacing:1px;
+text-decoration:none;
+font-size:14px;
+position:relative;
+overflow:hidden;
+cursor:pointer;
+
+color:white;
+background:linear-gradient(45deg,var(--red),var(--blue));
+border:2px solid transparent;
+
+box-shadow:
+0 0 10px var(--blue),
+0 0 20px var(--red);
+
+transition:all 0.4s ease;
+animation:enginePulse 2.5s infinite alternate;
+}
+
+@keyframes enginePulse{
+from{
+box-shadow:
+0 0 10px var(--blue),
+0 0 20px var(--red);
+}
+to{
+box-shadow:
+0 0 20px var(--blue),
+0 0 40px var(--red),
+0 0 60px var(--blue);
+}
+}
+
+.project-button::before{
+content:"";
+position:absolute;
+top:0;
+left:-75%;
+width:50%;
+height:100%;
+background:rgba(255,255,255,0.4);
+transform:skewX(-25deg);
+transition:0.6s;
+}
+
+.project-button:hover::before{
+left:130%;
+}
+
+.project-button:hover{
+transform:translateY(-6px) scale(1.07);
+background:linear-gradient(45deg,var(--blue),var(--red));
+}
+
+.project-button:active{
+transform:scale(0.95);
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+text-align:center;
+padding:30px;
+background:#000;
+color:var(--gold);
+margin-top:40px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+.features-grid,
+.skills-grid{
+grid-template-columns:1fr;
+}
+
+.bio-content{
+grid-template-columns:1fr;
+}
+
+.hero-title{
+font-size:2rem;
+}
+
+.profile-img{
+width:150px;
+height:150px;
+}
+
+}

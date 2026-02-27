@@ -1,0 +1,314 @@
+/* ====== GLOBAL ====== */
+body {
+    margin: 0;
+    padding: 20px;
+    background: radial-gradient(circle at top, #0f0f0f, #000);
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+}
+
+/* ====== CONTENEDOR ====== */
+.game-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* ====== TABLERO ====== */
+.game-board {
+    border: 4px solid #2ed573;
+    border-radius: 8px;
+    box-shadow: 0 0 25px #2ed573, inset 0 0 15px #ff4757;
+    background: #000;
+    padding: 30px 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ====== TÍTULO ====== */
+.game-title {
+    font-size: 13px;
+    color: #2ed573;
+    text-shadow: 2px 2px 0px #ff4757, 0 0 20px #2ed573;
+    line-height: 2;
+    margin: 0;
+}
+
+/* ====== TURNO ====== */
+.turn-display {
+    font-size: 11px;
+    color: #fffa65;
+    text-shadow: 2px 2px 0px #ff4757, 0 0 15px #fffa65;
+    animation: flicker 2s infinite alternate;
+}
+.turn-display.x { color: #2ed573; text-shadow: 2px 2px 0px #000, 0 0 15px #2ed573; }
+.turn-display.o { color: #ff4757; text-shadow: 2px 2px 0px #000, 0 0 15px #ff4757; }
+
+/* ====== GRID ====== */
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 6px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background: #111;
+    border: 3px solid #2ed573;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #2ed573, inset 0 0 8px #000;
+    transition: background 0.15s, box-shadow 0.15s, transform 0.1s;
+    user-select: none;
+}
+.cell:hover:not(.taken) {
+    background: #1a1a1a;
+    box-shadow: 0 0 20px #2ed573, inset 0 0 10px #000;
+    transform: scale(1.05);
+}
+.cell.taken {
+    cursor: default;
+}
+.cell.x-cell {
+    color: #2ed573;
+    text-shadow: 0 0 20px #2ed573;
+    border-color: #2ed573;
+    box-shadow: 0 0 15px #2ed573, inset 0 0 8px #000;
+}
+.cell.o-cell {
+    color: #ff4757;
+    text-shadow: 0 0 20px #ff4757;
+    border-color: #ff4757;
+    box-shadow: 0 0 15px #ff4757, inset 0 0 8px #000;
+}
+.cell.win-cell {
+    background: #1a0a00;
+    animation: winPulse 0.5s ease infinite alternate;
+}
+.cell.x-cell.win-cell {
+    box-shadow: 0 0 30px #2ed573, inset 0 0 15px #002a15;
+}
+.cell.o-cell.win-cell {
+    box-shadow: 0 0 30px #ff4757, inset 0 0 15px #2a0005;
+}
+
+/* ====== BOTÓN RESET ====== */
+.reset-btn {
+    padding: 10px 16px;
+    font-size: 9px;
+    font-family: 'Press Start 2P', cursive;
+    background: #111;
+    color: #fff;
+    border: 2px solid #ff4757;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 12px #ff4757;
+    transition: 0.2s;
+    width: 100%;
+}
+.reset-btn:hover {
+    background: #ff4757;
+    color: #000;
+    box-shadow: 0 0 25px #ff4757;
+}
+
+/* ====== PANEL INFO ====== */
+.game-info {
+    background: rgba(10,10,10,0.95);
+    padding: 20px;
+    border: 3px solid #ff4757;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #ff4757, inset 0 0 10px #2ed573;
+    min-width: 220px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ====== MARCADOR ====== */
+.score-section h2 {
+    margin: 0 0 14px 0;
+    font-size: 12px;
+    color: #2ed573;
+    text-shadow: 2px 2px 0px #ff4757, 0 0 15px #2ed573;
+}
+.score-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 8px;
+    border: 2px solid #333;
+    border-radius: 6px;
+    background: #111;
+    margin-bottom: 8px;
+}
+.player-x  { font-size: 14px; color: #2ed573; text-shadow: 0 0 10px #2ed573; }
+.player-o  { font-size: 14px; color: #ff4757; text-shadow: 0 0 10px #ff4757; }
+.player-tie { font-size: 8px; color: #888; }
+.score-val {
+    font-size: 20px;
+    color: #fffa65;
+    text-shadow: 2px 2px 0px #ff4757, 0 0 10px #fffa65;
+}
+
+/* ====== MODO DE JUEGO ====== */
+.mode-section h3 {
+    font-size: 10px;
+    color: #ff4757;
+    margin-bottom: 12px;
+    text-shadow: 2px 2px 0px #2ed573, 0 0 15px #ff4757;
+}
+.mode-btn {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 8px;
+    font-family: 'Press Start 2P', cursive;
+    background: #111;
+    color: #888;
+    border: 2px solid #333;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: 0.2s;
+}
+.mode-btn:hover {
+    border-color: #2ed573;
+    color: #fff;
+}
+.mode-btn.active {
+    background: #2ed573;
+    color: #000;
+    border-color: #2ed573;
+    box-shadow: 0 0 15px #2ed573;
+}
+
+/* ====== CONTROLES ====== */
+.controls h3 {
+    font-size: 10px;
+    color: #ff4757;
+    margin-bottom: 12px;
+    text-shadow: 2px 2px 0px #2ed573, 0 0 15px #ff4757;
+}
+.control-key {
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 0;
+    padding: 5px;
+    border: 2px solid #2ed573;
+    border-radius: 6px;
+    font-size: 8px;
+    background: #111;
+    color: #fff;
+    text-shadow: 2px 2px 0px #ff4757;
+    transition: 0.2s;
+}
+.control-key:hover {
+    background: #2ed573;
+    color: #000;
+}
+
+/* ====== BOTÓN VOLVER ====== */
+#back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 10px;
+    font-family: 'Press Start 2P', cursive;
+    background: #111;
+    color: #fff;
+    border: 2px solid #2ed573;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: 0 0 12px #ff4757;
+    transition: 0.2s;
+}
+#back-btn:hover {
+    background: #2ed573;
+    color: #000;
+    border-color: #ff4757;
+    box-shadow: 0 0 20px #2ed573;
+}
+
+/* ====== GAME OVER OVERLAY ====== */
+.game-over {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.game-over-content {
+    background: #000;
+    padding: 40px;
+    border: 3px solid #ff4757;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 30px #ff4757, inset 0 0 20px #2ed573;
+}
+.game-over h2 {
+    color: #fffa65;
+    font-size: 16px;
+    text-shadow: 2px 2px 0px #ff4757, 0 0 20px #fffa65;
+    margin-bottom: 20px;
+    animation: flicker 1s infinite alternate;
+}
+.final-score {
+    font-size: 11px;
+    color: #fff;
+    margin: 20px 0;
+    text-shadow: 2px 2px 0px #ff4757, 0 0 10px #2ed573;
+    line-height: 2;
+}
+.restart-btn {
+    padding: 12px 20px;
+    font-size: 10px;
+    font-family: 'Press Start 2P', cursive;
+    background: #2ed573;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #2ed573, inset 0 0 10px #000;
+    transition: 0.2s;
+}
+.restart-btn:hover {
+    background: #ff4757;
+    color: #fff;
+    box-shadow: 0 0 25px #ff4757, inset 0 0 12px #2ed573;
+}
+
+/* ====== ANIMACIONES ====== */
+@keyframes flicker {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.75; }
+    100% { opacity: 1; }
+}
+@keyframes winPulse {
+    from { transform: scale(1); }
+    to   { transform: scale(1.08); }
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25%       { transform: translateX(-8px); }
+    75%       { transform: translateX(8px); }
+}
+.shake { animation: shake 0.4s ease; }

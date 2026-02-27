@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>GALAGA IMPERIAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="snake.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Botón volver -->
+    <a href="../Chris-index.html" class="back-button">⬅ Volver a Chris</a>
+
+    <!-- Panel Superior -->
+    <div class="top-panel">
+        <div class="box">
+            <span>Puntaje</span>
+            <h2 id="score">0</h2>
+        </div>
+
+        <div class="box">
+            <span>Nivel</span>
+            <h2 id="level">1</h2>
+        </div>
+
+        <div class="box">
+            <span>Velocidad</span>
+            <h2 id="speed">1x</h2>
+        </div>
+    </div>
+
+    <!-- Área del juego -->
+    <div class="game-wrapper">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Game Over -->
+        <div class="overlay" id="gameOver" style="display:none;">
+            <h2>💀 MISIÓN FALLIDA</h2>
+            <button onclick="restartGame()">REINTENTAR</button>
+        </div>
+    </div>
+
+    <!-- Modal automático -->
+    <div class="modal" id="instructionModal">
+        <div class="modal-content">
+            <h1>🚀 MISIÓN GALÁCTICA</h1>
+
+            <div class="keys">
+                <div class="key">⬅</div>
+                <div class="key">➡</div>
+            </div>
+            <p>Mueve tu nave</p>
+
+            <div class="keys">
+                <div class="key space">ESPACIO</div>
+            </div>
+            <p>Dispara láser</p>
+
+            <button class="start-mission" onclick="startGame()">
+                🚀 COMENZAR MISIÓN
+            </button>
+        </div>
+    </div>
+
+    <!-- Panel Inferior -->
+<div class="bottom-panel">
+    <div class="card">🌌 Ahora eres un Guardián más de la Galaxia</div>
+    <div class="card">🚀 "Nunca me digas las probabilidades"</div>
+    <div class="card">⚡ Eres un Forajido del hiperespacio</div>
+    <div class="card">🔥 La Fuerza favorece a los audaces</div>
+</div>
+
+</div>
+
+<script src="snake.js"></script>
+</body>
+</html>
