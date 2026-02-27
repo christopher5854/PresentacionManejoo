@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sonnia Pillajo - El Lado Oscuro del Código</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sonnia-style.css">
+</head>
+<body class="theme-sabacc">
+
+  <div class="stars-overlay"></div>
+
+  <div class="container">
+
+    <!-- Selector de facción -->
+    <div class="game-selector">
+      <button class="game-btn" id="btn-luminoso" data-side="jedi">⚔ Lado Luminoso</button>
+      <button class="game-btn active" id="btn-sabacc" data-side="sabacc">🎴 Sabacc</button>
+      <button class="game-btn" id="btn-imperio" data-side="sith">☠ Imperio</button>
+    </div>
+
+    <!-- Header -->
+    <header class="hero-header">
+      <div class="back-button-container">
+        <a href="../index.html" class="back-button">
+          <span>🚀</span>
+          <span>Volver al Escuadrón</span>
+        </a>
+      </div>
+
+      <div class="hero-content">
+        <div class="profile-image">
+          <img src="imagenes/sonnia.jpeg" alt="Sonnia Pillajo" class="profile-img">
+        </div>
+        <h1 class="hero-title">Sonnia Pillajo</h1>
+        <p class="hero-subtitle">Padawan del Front-End • Full-Stack en progreso</p>
+        <p class="hero-slogan" id="hero-slogan">Apostando el semestre en la galaxia del código...</p>
+        <div class="hero-symbols">
+          <span>⚡</span>
+          <span>🌌</span>
+          <span>⚔️</span>
+          <span>🛸</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Características -->
+    <section class="features-section">
+      <h2 class="section-title">Poderes del Jedi</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3>La Fuerza Mental</h3>
+          <p>Curiosidad por aprender, analizar y tratar de simplificar problemas complejos. Que los resuelva es muy diferente.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Estrategia Sith</h3>
+          <p>Tomo decisiones como Anakin Skywalker: sin pensar las consecuencias. Primero lo hago y luego me arrepiento.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Creatividad Holocron</h3>
+          <p>Diseñar soluciones elegantes y divertir al usuario: el diseño cubre mis errores como el casco de Vader.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Biografía -->
+    <section class="bio-section">
+      <h2 class="section-title">Registro Imperial</h2>
+      <div class="bio-content">
+        <div class="bio-text">
+          <p>Tengo 22 años y soy un estudiante de la ciudad de Ambato con muchos intereses como la tecnología y sus avances, los videojuegos y sobre todo tratar de comprender como funcionan las cosas.</p>
+          <p>Desde muy pequeño me ha gustado todo lo que tiene que ver con el desarrollo en software. Claro está que gracias a esto desarrollé una gran pasión por los videojuegos y por descargarlos de forma dudosa en ELAMIGOS (De seguro algún hacker talibán tiene mis datos).</p>
+          <p>Uno de mis mayores logros fue entrar en la carrera y el mayor será poder salir de ella.</p>
+          <p>Creo que el humor y la creatividad son esenciales para superar cualquier obstáculo, y trato de aplicarlos tanto en mis proyectos como en mi vida diaria.</p>
+        </div>
+        <div class="bio-highlights">
+          <div class="highlight-item">
+            <span class="highlight-icon">💻</span>
+            <span class="highlight-text">Interés en la tecnología</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">🤓</span>
+            <span class="highlight-text">Aprendizaje constante</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">🎮</span>
+            <span class="highlight-text">Gamer Nivel Maestro</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section class="skills-section">
+      <h2 class="section-title">Midichlorians del Código</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>👨‍💻 Programación</h3>
+          <ul class="fun-list">
+            <li>🧩 Maestro de ciclos anidados: hago <code>for</code> dentro de <code>for</code> con confianza… y terror.</li>
+            <li>⚡ Backend: APIs y Node.js. Uso la Fuerza del servidor.</li>
+            <li>🔌 Frontend: HTML, CSS, JavaScript. El sable de luz del developer.</li>
+          </ul>
+          <div class="skill-bars">
+            <div class="skill-bar">
+              <span class="skill-name">Lógica & Algoritmos</span>
+              <div class="skill-progress"><div class="skill-fill" data-level="60%"></div></div>
+            </div>
+            <div class="skill-bar">
+              <span class="skill-name">Diseño de interfaces</span>
+              <div class="skill-progress"><div class="skill-fill" data-level="50%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>🎮 Gamer Jedi</h3>
+          <ul class="fun-list">
+            <li>🕹️ Gamer compulsivo: Juego mucho y duermo poco.</li>
+            <li>🎯 Headshot ocasional: no soy malo, es que tengo lag en la Fuerza.</li>
+            <li>🏆 Jugador selectivo: Si en 40 minutos no me atrapa… lo abandono.</li>
+          </ul>
+          <div class="skill-bars">
+            <div class="skill-bar">
+              <span class="skill-name">Reflejos FPS</span>
+              <div class="skill-progress"><div class="skill-fill" data-level="76%"></div></div>
+            </div>
+            <div class="skill-bar">
+              <span class="skill-name">Estrategia & Timing</span>
+              <div class="skill-progress"><div class="skill-fill" data-level="90%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>🤝 Habilidades Jedi</h3>
+          <ul class="fun-list">
+            <li>😎 Adaptabilidad: Me adapto como el agua... o como Obi-Wan en el desierto.</li>
+            <li>🎤 Comunicación para resolver dudas del escuadrón de trabajo.</li>
+            <li>🧘‍♂️ Paciencia: La Fuerza me da calma frente a desafíos técnicos.</li>
+          </ul>
+          <div class="skill-bars">
+            <div class="skill-bar">
+              <span class="skill-name">Trabajo en equipo</span>
+              <div class="skill-progress"><div class="skill-fill" data-level="70%"></div></div>
+            </div>
+            <div class="skill-bar">
+              <span class="skill-name">Gestión del tiempo</span>
+              <div class="skill-progress"><div class="skill-fill" data-level="81%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyecto -->
+    <section class="project-section">
+      <h2 class="section-title">Misión Especial</h2>
+      <div class="project-card">
+        <div class="project-info">
+          <h3 class="label">Sabacc Galáctico</h3>
+          <p>Duelo de estrategia contra la inteligencia imperial. Utiliza tus créditos con sabiduría.</p>
+          <!-- Este botón abre el modal con el juego completo -->
+          <button class="open-modal-btn" id="open-blackjack">⚔️ Iniciar Duelo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MODAL DEL JUEGO ========== -->
+    <div id="blackjack-modal" class="modal" style="display:none;">
+      <div class="modal-content console-border">
+
+        <!-- Botón cerrar -->
+        <span class="close-modal" id="close-blackjack">&times;</span>
+
+        <!-- Título del modal -->
+        <h3 class="modal-title">Duelo de Sabacc</h3>
+
+        <!-- Info: créditos y apuesta -->
+        <div class="game-info">
+          <div class="chips-display label">Créditos: <span id="chips-count">90</span></div>
+          <div class="bet-display label">Apuesta: <span id="bet-amount">0</span></div>
+        </div>
+
+        <!-- Fichas de apuesta -->
+        <div class="chip-selection">
+          <button class="chip-btn" data-value="5">5C</button>
+          <button class="chip-btn" data-value="10">10C</button>
+          <button class="chip-btn" data-value="25">25C</button>
+          <button class="chip-btn" data-value="50">50C</button>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="action-buttons">
+          <button class="project-button" id="deal-button">Repartir</button>
+          <button class="project-button" id="hit-button" disabled>Pedir</button>
+          <button class="project-button" id="stand-button" disabled>Plantarse</button>
+          <button class="project-button" id="restart-button">Reiniciar</button>
+        </div>
+
+        <!-- Área de juego -->
+        <div class="game-area">
+
+          <div class="hand">
+            <div class="hand-title">El Imperio</div>
+            <div id="dealer-cards" class="cards-container"></div>
+            <div id="dealer-score" class="score-display"></div>
+          </div>
+
+          <div id="result-message" class="result-message"></div>
+
+          <div class="hand">
+            <div class="hand-title">Tu Mano</div>
+            <div id="player-cards" class="cards-container"></div>
+            <div id="player-score" class="score-display label"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- ========== FIN MODAL ========== -->
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2026 Sonnia Pillajo — <em>"Que la Fuerza del Código te acompañe"</em></p>
+        <div class="footer-icons">
+          <span>⚡</span><span>🌌</span><span>⚔️</span><span>🛸</span>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- fin .container -->
+
+  <script src="sonnia.js"></script>
+</body>
+</html>
