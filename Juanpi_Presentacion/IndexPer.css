@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0f1923 0%, #111823 100%);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* BOTÓN VOLVER */
+.play-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #ff4655;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    transition: 0.3s;
+}
+
+.play-button:hover {
+    background: white;
+    color: #0f1923;
+}
+
+/* CONTENEDOR */
+.container {
+    width: 85%;
+    margin: auto;
+    padding: 50px 0;
+}
+
+/* TÍTULO */
+.main-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.main-title h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    color: #ff4655;
+    margin-top: 10px;
+}
+
+/* FOTO */
+.profile-photo {
+    margin: 20px 0;
+}
+
+.profile-img {
+    width: 200px;
+    border-radius: 8px;
+    border: 3px solid #ff4655;
+    box-shadow: 0 0 20px rgba(255,70,85,0.6);
+}
+
+/* GRID */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* CARDS */
+.card {
+    background: #111823;
+    padding: 25px;
+    border-left: 4px solid #ff4655;
+    box-shadow: 0 0 20px rgba(255,70,85,0.1);
+}
+
+.card-title {
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 20px;
+}
+
+.trait {
+    background: #1c2633;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* BIO */
+.full-section {
+    margin-top: 60px;
+    padding: 30px;
+    background: #111823;
+    border-left: 5px solid #ff4655;
+}
+.full-section {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.full-section:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(255, 70, 85, 0.4);
+}
+
+.section-title {
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 15px;
+}
+
+.bio-card p {
+  display: block;      /* Asegura que sean bloques */
+  margin-bottom: 1rem; /* Espacio entre párrafos */
+  line-height: 1.6;    /* Mejora la legibilidad */
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 60px;
+    padding: 40px 0;
+    border-top: 2px solid #ff4655;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+/* DETALLE DECORATIVO */
+body::before {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    background: #ff4655;
+    opacity: 0.04;
+    transform: rotate(45deg);
+    top: -120px;
+    right: -120px;
+}
+
+/* ===== NUEVO DISEÑO HABILIDADES ===== */
+
+.skills-section {
+    margin-top: 50px;
+}
+
+.skill-card {
+    background: #111823;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #ff4655;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(255, 70, 85, 0.05);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(255, 70, 85, 0.4);
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.skill-name {
+    letter-spacing: 1px;
+}
+
+.skill-percent {
+    color: #ff4655;
+    font-weight: bold;
+}
+
+.skill-bar {
+    height: 8px;
+    background: #1c2633;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: #ff4655;
+    box-shadow: 0 0 10px #ff4655;
+    transition: width 1.5s ease;
+}
+
+/* ===== STATS ESTILO AGENTE ===== */
+
+.agent-stats-section {
+    margin-top: 80px;
+    padding: 40px;
+    background: #0f1923;
+    border-top: 3px solid #ff4655;
+}
+
+.agent-profile {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.agent-image img {
+    width: 175px;
+    border: 3px solid #ff4655;
+    box-shadow: 0 0 25px rgba(255,70,85,0.5);
+}
+
+.agent-stats {
+    flex: 1;
+}
+
+.stat-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 50px;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.stat-bar {
+    height: 8px;
+    background: #1c2633;
+    margin: 0 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    background: #ff4655;
+    box-shadow: 0 0 10px #ff4655;
+    transition: width 1.5s ease;
+}
+
+.stat-number {
+    color: #ff4655;
+}
+
+/* ===== EFECTO ZOOM EN INTERESES ===== */
+
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.08);
+    background: #ff4655;
+    color: white;
+    box-shadow: 0 0 15px #ff4655;
+    border-radius: 6px;
+}
+
+/* ===== MINI JUEGO ===== */
+
+.mini-game-section {
+    margin-top: 60px;
+}
+
+.mini-game-card {
+    background: #111823;
+    padding: 25px;
+    transition: all 0.3s ease;
+    border-left: 4px solid #ff4655;
+}
+
+.mini-game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff4655;
+}
+
+.mini-game-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #ff4655;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.mini-game-btn:hover {
+    background: white;
+    color: #ff4655;
+}

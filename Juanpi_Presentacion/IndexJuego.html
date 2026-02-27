@@ -7,7 +7,22 @@
 </head>
 <body>
 
-<h1>🚀 Defensa Espacial</h1>
+<h1>🚀 Space Shoot</h1>
+
+<div id="startScreen" class="start-screen">
+    <h1>🚀 Space Shooter</h1>
+
+    <div class="instructions">
+        <h2>Instrucciones</h2>
+        <p>🎮 Mueve la nave con ← →</p>
+        <p>🔫 Dispara con la barra espaciadora</p>
+        <p>❤️ Tienes 3 vidas</p>
+        <p>⚡ Los enemigos se vuelven más rápidos con el tiempo</p>
+        <p>🏆 Sobrevive el mayor tiempo posible y consigue la mayor puntuación</p>
+    </div>
+
+    <button id="startBtn">INICIAR JUEGO</button>
+</div>
 
 <div id="info">
     ❤️ Vidas: <span id="lives">3</span> |
@@ -19,7 +34,7 @@
     <div id="player"></div>
 </div>
 
-<button id="startBtn" class="start-button">🚀 Iniciar Juego</button>
+<button id="exitBtnGame" class="exit-btn-game">Salir</button>
 
 <!-- IMPORTANTE: empieza OCULTO -->
 <div id="gameOverScreen" class="hidden">
@@ -28,6 +43,7 @@
         <h3>🎯 Puntaje Final: <span id="finalScoreText">0</span></h3>
         <h3 id="newRecordText" class="record hidden">🔥 ¡Nuevo Récord!</h3>
         <button id="restartBtn" class="start-button">🔄 Jugar Otra Vez</button>
+        <button id="exitBtn" class="exit-button">🏃 Salir</button>
     </div>
 </div>
 
