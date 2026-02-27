@@ -1,0 +1,388 @@
+/* Fuente futurista */
+body {
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  background: radial-gradient(circle at top, #0b0f1a, #000);
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* Contenedor principal */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+/* Panel izquierdo */
+#left-panel {
+  width: 220px;
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 0 15px #00e0ff22;
+  font-size: 0.85rem;
+  color: #00e0ff;
+  border: 1px solid #00e0ff33;
+}
+
+#left-panel h2 {
+  color: #00bfff;
+  margin-top: 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#left-panel ul {
+  padding-left: 15px;
+  margin: 8px 0;
+}
+
+#left-panel li {
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+}
+
+#gameStats {
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  border: 1px solid #00e0ff33;
+}
+
+#gameStats h3 {
+  margin: 0 0 8px 0;
+  color: #00bfff;
+  font-size: 0.9rem;
+}
+
+#gameStats p {
+  margin: 4px 0;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#gameStats span {
+  color: #00e0ff;
+  font-weight: bold;
+}
+
+/* Contenedor del juego */
+#game-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Canvas del juego */
+#game {
+  border: 3px solid #00e0ff;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #111827, #0f172a);
+  box-shadow: 0 0 20px #00e0ff55;
+  display: block;
+}
+
+/* Indicador de oleada */
+.wave-indicator {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #00e0ff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  border: 2px solid #00e0ff;
+  z-index: 1000;
+  display: none;
+}
+
+/* Panel lateral derecho */
+#ui {
+  width: 250px;
+  padding: 15px;
+  border-radius: 12px;
+  border: 2px solid #00e0ff55;
+  font-size: 0.9rem;
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 0 25px #00e0ff33;
+  backdrop-filter: blur(10px);
+}
+
+#ui h1 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #00e0ff;
+  text-shadow: 0 0 15px #00e0ff;
+}
+
+#ui h2 {
+  font-size: 1rem;
+  margin: 12px 0 6px;
+  color: #00bfff;
+  border-bottom: 1px solid #00e0ff33;
+  padding-bottom: 4px;
+}
+
+/* Botones generales */
+button, a.secondary-btn {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.9rem;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Estilo de botones principales */
+.primary-btn {
+  background: linear-gradient(90deg, #00e0ff, #0077ff);
+  color: #fff;
+  box-shadow: 0 0 10px #00bfffaa;
+}
+
+.primary-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00bfff;
+}
+
+.secondary-btn {
+  background: linear-gradient(90deg, #888, #555);
+  color: #fff;
+}
+
+.secondary-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #777;
+}
+
+/* Botón de salir específico */
+#exitBtn {
+  background: linear-gradient(90deg, #ff4d4d, #cc0000);
+  color: #fff;
+}
+
+#exitBtn:hover {
+  box-shadow: 0 0 15px #ff4d4d;
+  transform: scale(1.05);
+}
+
+/* Botones de torres */
+.tower-btn {
+  background: linear-gradient(90deg, #222, #111);
+  color: #00e0ff;
+  border: 1px solid #00e0ff55;
+  text-align: left;
+  padding: 8px 12px;
+}
+
+.tower-btn:hover {
+  background: #00e0ff22;
+  box-shadow: 0 0 12px #00e0ff77;
+}
+
+.tower-btn.active {
+  background: #00e0ff33;
+  box-shadow: 0 0 10px #00e0ff;
+  border-color: #00e0ff;
+}
+
+/* Botones pequeños */
+.small-btn {
+  background: #333;
+  color: #00e0ff;
+  padding: 6px;
+  font-size: 0.8rem;
+}
+
+.small-btn:hover {
+  box-shadow: 0 0 8px #00e0ff;
+  transform: scale(1.02);
+}
+
+/* HUD */
+#hud {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #00e0ff33;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+#hud p {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#hud span {
+  color: #00e0ff;
+  font-weight: bold;
+}
+
+/* Información de oleada */
+#waveInfo {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #00e0ff33;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 0.85rem;
+}
+
+#waveInfo p {
+  margin: 4px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#waveInfo span {
+  color: #00e0ff;
+  font-weight: bold;
+}
+
+/* Info de mapa */
+#mapInfo {
+  margin-top: 15px;
+  font-size: 0.75rem;
+  color: #aaa;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  color: #00e0ff77;
+  font-size: 0.8rem;
+  padding: 10px;
+}
+
+/* Animaciones de brillo */
+@keyframes neon-glow {
+  0%, 100% { box-shadow: 0 0 15px #00e0ff; }
+  50% { box-shadow: 0 0 30px #00e0ffaa; }
+}
+
+#game {
+  animation: neon-glow 3s infinite ease-in-out;
+}
+
+/* Animaciones para vida baja */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.low-health {
+  animation: pulse 0.5s infinite;
+  color: #ff0000 !important;
+}
+
+.medium-health {
+  animation: pulse 1s infinite;
+  color: #ffaa00 !important;
+}
+
+/* Efecto de daño */
+.damage-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 0, 0, 0.3);
+  pointer-events: none;
+  z-index: 9999;
+  animation: fadeOut 0.5s ease-out;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Indicador de oleada emergente */
+.wave-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: #00e0ff;
+  padding: 20px 40px;
+  border-radius: 15px;
+  font-size: 2rem;
+  border: 3px solid #00e0ff;
+  z-index: 10000;
+  text-align: center;
+  box-shadow: 0 0 30px #00e0ff;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #left-panel, #ui {
+    width: 90%;
+    max-width: 720px;
+  }
+  
+  #left-panel {
+    order: 1;
+  }
+  
+  #game-container {
+    order: 2;
+  }
+  
+  #ui {
+    order: 3;
+  }
+}
+
+/* Efectos de partículas */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.primary-btn {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Dificultad colors */
+.difficulty-easy { color: #4ade80; }
+.difficulty-medium { color: #fbbf24; }
+.difficulty-hard { color: #ef4444; }
+.difficulty-extreme { color: #dc2626; }

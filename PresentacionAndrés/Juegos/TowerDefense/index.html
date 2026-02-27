@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tower Defense Deluxe</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <aside id="left-panel">
+      <h2>Información del Juego</h2>
+      <p>🎯 <strong>Objetivo:</strong> Defiende tu base colocando torres estratégicamente.</p>
+      <p>👾 <strong>Cozy:</strong> Siguen el camino azul. Si llegan al final, pierdes vida.</p>
+      <p>🧱 <strong>Torres:</strong></p>
+      <ul>
+        <li>🔹 Básica: Daño balanceado</li>
+        <li>🌀 Lenta: Ralentiza enemigos</li>
+        <li>🎯 Francotirador: Alto daño, largo alcance</li>
+      </ul>
+      <p>↩️ <strong>Deshacer/Rehacer:</strong> Usa los botones para gestionar tus torres.</p>
+      <div id="gameStats">
+        <h3>📈 Estadísticas</h3>
+        <p>Mapa Actual: <span id="currentMap">1</span>/5</p>
+        <p>Enemigos Restantes: <span id="enemiesLeft">0</span></p>
+        <p>Torres Colocadas: <span id="towersPlaced">0</span></p>
+      </div>
+    </aside>
+
+    <div id="game-container">
+      <canvas id="game" width="720" height="480"></canvas>
+      <div id="waveIndicator" class="wave-indicator"></div>
+    </div>
+
+    <aside id="ui">
+      <h1>🌀 Tower Defense Deluxe</h1>
+
+      <section id="controls">
+        <button id="startWave" class="primary-btn">🚀 Iniciar Oleada <span id="waveCounter">(1)</span></button>
+        <button id="pauseBtn" class="secondary-btn">⏸️ Pausar</button>
+        <a href="../../index.html" class="secondary-btn" id="exitBtn">🚪 Salir</a>
+      </section>
+
+      <section id="towers">
+        <h2>🧱 Torres</h2>
+        <button class="tower-btn" data-type="basic">🔹 Básica (¢50)</button>
+        <button class="tower-btn" data-type="slow">🌀 Lenta (¢70)</button>
+        <button class="tower-btn" data-type="sniper">🎯 Francotirador (¢120)</button>
+      </section>
+
+      <section id="undoRedo">
+        <h2>↩️ Acciones</h2>
+        <button id="undo" class="small-btn">⏪ Deshacer</button>
+        <button id="redo" class="small-btn">⏩ Rehacer</button>
+      </section>
+
+      <section id="hud">
+        <h2>📊 Estado</h2>
+        <p>❤️ Vida: <span id="playerHealth">10</span></p>
+        <p>🌊 Ola: <span id="waveNum">0</span></p>
+        <p>💰 Dinero: ¢<span id="money">200</span></p>
+        <p>⭐ Puntuación: <span id="score">0</span></p>
+        <p>🗺️ Mapa: <span id="mapNum">1</span>/5</p>
+      </section>
+
+      <section id="waveInfo">
+        <h2>🌊 Próxima Oleada</h2>
+        <p>Enemigos: <span id="nextWaveEnemies">0</span></p>
+        <p>Dificultad: <span id="nextWaveDifficulty">Fácil</span></p>
+      </section>
+
+      <p id="mapInfo">Haz click en el mapa para colocar torres. Doble click para mejorar. Usa deshacer/rehacer para gestionar torres.</p>
+    </aside>
+  </div>
+
+  <footer>
+    <p>🎮 Creado por Andres Toasa — Proyecto de Ingeniería en Software</p>
+  </footer>
+
+  <script src="defensaTorres.js"></script>
+</body>
+</html>

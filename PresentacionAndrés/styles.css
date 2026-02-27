@@ -1,0 +1,379 @@
+/* ============================= */
+/* FONDO GALACTICO PROFESIONAL */
+/* ============================= */
+
+body{
+margin:0;
+padding:0;
+font-family:'Orbitron', sans-serif;
+color:#d4f78f;
+text-align:center;
+min-height:100vh;
+overflow-x:hidden;
+
+background:
+radial-gradient(circle at 20% 30%, #001133, transparent 40%),
+radial-gradient(circle at 80% 70%, #000066, transparent 40%),
+radial-gradient(circle at 50% 90%, #220044, transparent 40%),
+linear-gradient(180deg,#020617,#000000);
+}
+
+
+/* ============================= */
+/* ESTRELLAS */
+/* ============================= */
+
+.stars{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:200%;
+background-image:url("https://www.transparenttextures.com/patterns/stardust.png");
+opacity:0.8;
+z-index:-2;
+animation:starsMove 60s linear infinite;
+}
+
+@keyframes starsMove{
+from{ transform:translateY(0px);}
+to{ transform:translateY(-2000px);}
+}
+
+
+/* ============================= */
+/* NEBULOSA */
+/* ============================= */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 30% 40%, #00ff0044, transparent 40%),
+radial-gradient(circle at 70% 80%, #00440044, transparent 40%),
+radial-gradient(circle at 80% 20%, #66ff0033, transparent 40%);
+z-index:-1;
+animation:nebula 10s infinite alternate;
+}
+
+@keyframes nebula{
+0%{opacity:0.5;}
+100%{opacity:1;}
+}
+
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+header{
+padding:40px;
+background:rgba(0,0,40,0.6);
+border-bottom:3px solid #a0ff50;
+box-shadow:
+0 0 20px #a0ff50,
+0 0 60px #7fff55;
+}
+
+
+/* TITULO */
+
+h1{
+font-size:45px;
+color:#a0ff50;
+text-shadow:
+0 0 10px #a0ff50,
+0 0 20px #7fff55,
+0 0 40px #a0ff50,
+0 0 80px #b0ff77;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:
+0 0 10px #a0ff50,
+0 0 20px #7fff55;
+}
+to{
+text-shadow:
+0 0 20px #a0ff50,
+0 0 50px #b0ff77,
+0 0 90px #c0ff99;
+}
+}
+
+
+/* ============================= */
+/* PERFIL */
+/* ============================= */
+
+.robot{
+width:140px;
+margin-left:-40px;
+filter:drop-shadow(0px 0px 15px #a0ff50);
+animation:flotar 4s infinite ease-in-out;
+}
+
+@keyframes flotar{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0px);}
+}
+
+
+.foto{
+width:200px;
+border-radius:20px;
+border:3px solid #a0ff50;
+box-shadow:
+0 0 15px #a0ff50,
+0 0 25px #66ff0044;
+transition:0.3s;
+}
+
+.foto:hover{
+transform:scale(1.1);
+box-shadow:
+0 0 25px #a0ff50,
+0 0 50px #66ff0044;
+}
+
+
+/* ============================= */
+/* TARJETAS INFO */
+/* ============================= */
+
+.info{
+margin:30px auto;
+width:60%;
+padding:25px;
+background:rgba(0,0,40,0.6);
+border-radius:20px;
+border:1px solid #a0ff50;
+box-shadow:
+0 0 15px #66ff0044,
+0 0 30px #33ff0022;
+transition:0.3s;
+}
+
+.info:hover{
+transform:scale(1.05);
+box-shadow:
+0 0 25px #a0ff50,
+0 0 50px #66ff0044;
+}
+
+h2{
+color:#a0ff50;
+margin-bottom:15px;
+}
+
+
+/* ============================= */
+/* PROYECTOS */
+/* ============================= */
+
+.proyectos{
+margin-top:40px;
+}
+
+.contenedor-juegos{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.tarjeta{
+width:250px;
+padding:20px;
+border-radius:15px;
+background:rgba(0,0,40,0.6);
+border:1px solid #a0ff50;
+box-shadow:0 0 15px #66ff0044;
+transition:0.3s;
+}
+
+.tarjeta:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px #a0ff50,0 0 50px #66ff0044;
+}
+
+
+/* BOTON JUGAR */
+
+.btn-juego{
+display:inline-block;
+margin-top:15px;
+padding:12px 25px;
+border-radius:10px;
+text-decoration:none;
+font-size:18px;
+background:linear-gradient(90deg,#66ff00,#00aa00);
+color:white;
+box-shadow:0 0 8px #a0ff50,0 0 20px #66ff0044;
+transition:0.3s;
+}
+
+.btn-juego:hover{
+transform:scale(1.2);
+box-shadow:0 0 30px #a0ff50,0 0 50px #66ff0044;
+}
+
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+footer{
+margin-top:50px;
+padding:20px;
+background:black;
+border-top:2px solid #a0ff50;
+color:#a0ff50;
+box-shadow:0 0 20px #a0ff50;
+}
+
+
+/* ============================= */
+/* BOTON REGRESAR */
+/* ============================= */
+
+.btn-regresar{
+
+position:fixed;
+top:20px;
+left:20px;
+
+padding:10px 20px;
+
+background:linear-gradient(90deg,#66ff00,#00aa00);
+color:white;
+
+text-decoration:none;
+border-radius:10px;
+
+font-size:16px;
+
+box-shadow:0 0 10px #a0ff50;
+transition:0.3s;
+
+z-index:10;
+}
+
+.btn-regresar:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px #a0ff50;
+}
+
+
+/* ============================= */
+/* HABILIDADES */
+/* ============================= */
+
+.habilidad{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+margin:12px 0;
+}
+
+.nombre-habilidad{
+width:120px;
+text-align:right;
+}
+
+.barra{
+width:150px;
+height:10px;
+background:#111;
+border-radius:10px;
+border:1px solid #a0ff50;
+overflow:hidden;
+}
+
+.progreso{
+height:100%;
+background:linear-gradient(90deg,#66ff00,#00aa00);
+}
+
+.porcentaje{
+width:50px;
+text-align:left;
+}
+
+
+/* ============================= */
+/* PROGRAMACION */
+/* ============================= */
+
+.html{width:80%;}
+.css{width:75%;}
+.js{width:60%;}
+.poo{width:70%;}
+.juegos{width:65%;}
+.logica{width:85%;}
+
+
+/* ============================= */
+/* COMBATE */
+/* ============================= */
+
+.fuerza{width:95%;}
+.velocidad{width:80%;}
+.resistencia{width:85%;}
+.defensa{width:90%;}
+.estrategia{width:95%;}
+.sigilo{width:60%;}
+
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media(max-width:900px){
+
+.info{width:90%;}
+
+h1{font-size:32px;}
+
+.robot{width:100px;}
+
+.foto{width:160px;}
+
+}
+
+
+
+/* ============================= */
+/* COLUMNAS HABILIDADES */
+/* ============================= */
+
+.contenedor-habilidades{
+
+display:flex;
+
+justify-content:center;
+
+gap:80px;
+
+flex-wrap:wrap;
+
+margin-top:20px;
+
+}
+
+.columna-habilidad{
+
+width:320px;
+
+text-align:left;
+
+}
